@@ -1,0 +1,13 @@
+
+    $DBservername = "localhost";
+    $DBusername = "root"; 
+    $DBpassword = "";  
+    $DBdatabase = "Blog";
+
+    $conn = new mysqli($DBservername, $DBusername, $DBpassword, $DBdatabase);
+
+if ($conn->connect_error) {
+        error_log( "Connection failed: " . $conn->connect_error);
+}
+
+//passer par un booléan pour vérifier si l'utilisateur est connecté
