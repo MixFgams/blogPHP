@@ -1,0 +1,80 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height:100%;
+}
+
+footer {
+    background-color: lightgray;
+    color: black;
+    padding: 5px;
+    font-family: "Century Gothic", sans-serif;
+    postion: absolute;
+    bottom: 0; left: 0; right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+}
+
+footer div#droit {
+    margin-top: 0px;
+    text-align: center;
+    font-style: italic;
+    font-size: 0.8em;
+}
+
+footer p {
+    display: inline;
+    margin-left: 35px;
+}
+
+footer img {
+    width: 5em;
+    margin-right: 15px;
+}
+
+footer .top-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-weight: bold;
+}
+
+/*-------------- Header --------------*/
+
+header {
+    background-color: lightgray;
+    color: black;
+    padding: 5px;
+    font-family: "Century Gothic", sans-serif;
+    postion: absolute;
+    bottom: 0; left: 0; right: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10px;
+    justify-content: center;
+    width: 100%;
+    font-weight: bold;
+}
+
+header p {
+    display: inline;
+    margin: 0 50px;
+}
+
+header img {
+    width: 5em;
+    margin-right: 15px;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-weight: bold;
+}
