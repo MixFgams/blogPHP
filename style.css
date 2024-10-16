@@ -2,7 +2,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh; /*100vh pour prendre toute la hauteur de la fenêtre */
+    justify-content: flex-start;
+    min-height: 100vh; /*100vh pour prendre toute la hauteur de la fenêtre */
     margin: 0;
 }
 
@@ -126,4 +127,21 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+button {
+    padding: 10px 20px;
+    background-color: #f44336;
+    margin: 1em;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    justify-self: center;
+    align-self: center;
+}
+
+button:hover {
+    background-color: #d32f2f;
+}
+
 /*------------------------------------------------------------*/

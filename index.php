@@ -8,27 +8,12 @@
     <body>
         <?php include 'otherPages/header.php'?>
         <!--A supprimer plus tard, c etait juste pour le fun-->
-        <script>
-            window.onload = function() {
-                const sections = document.querySelectorAll('section');
-                sections.forEach(section => {
-                    section.style.opacity = 0;
-                    section.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        section.style.transition = 'opacity 1s ease, transform 1s ease';
-                        section.style.opacity = 1;
-                        section.style.transform = 'translateY(0)';
-                    }, 100);
-                });
-            };
-        </script>
-        <!------------------------------------------------------------>
-
-        <main>
-            <!--A supprimer plus tard, c etait juste pour le fun-->
+        <button id="hideMainBtn">Cacher le contenu</button>
+        <main id="mainContent">
+            
             <h1 id="animated-text">Aizen Kosuke : L'Intellectuel Stratégique</h1>
 
-            <section class="parallax">
+            <section>
                 <h2>Aizen Sosuke</h2>
                 <img src="img/Aizen.png" alt="Aizen Sosuke" style="width: 100%; max-width: 400px; border: 2px solid #d32f2f; border-radius: 8px;">
                 <p>Aizen est connu pour son intelligence et sa capacité à manipuler les autres à son avantage.</p>
@@ -58,8 +43,33 @@
                 <h2>Conclusion</h2>
                 <p>Aizen Kosuke est bien plus qu'un simple antagoniste ; il est un maître de la manipulation et de l'intelligence, et son impact sur l'univers continue d'être ressenti à travers ses intrigues complexes et ses capacités surhumaines.</p>
             </section>
-            <!------------------------------------------------------------>
         </main>
+        <script>
+            window.onload = function() {
+                const sections = document.querySelectorAll('section');
+                sections.forEach(section => {
+                    section.style.opacity = 0;
+                    section.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        section.style.transition = 'opacity 1s ease, transform 1s ease';
+                        section.style.opacity = 1;
+                        section.style.transform = 'translateY(0)';
+                    }, 100);
+                });
+            };
+            document.getElementById('hideMainBtn').addEventListener('click', function() {
+                const mainContent = document.getElementById('mainContent');
+                if (mainContent.style.display === 'none') {
+                    mainContent.style.display = 'block'; // Affiche le contenu de <main>
+                    this.textContent = 'Cacher le contenu'; // Change le texte du bouton
+                } else {
+                    mainContent.style.display = 'none'; // Cache le contenu de <main>
+                    this.textContent = 'Afficher le contenu'; // Change le texte du bouton
+                }
+            });
+
+        </script>
+        <!------------------------------------------------------------>
         <?php include 'otherPages/footer.php'?>
     </body>
 </html>
