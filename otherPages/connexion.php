@@ -1,5 +1,6 @@
+
 <?php 
-require_once('header.php');
+session_start();
 
 $DBservername = "localhost";
 $DBusername = "root"; 
@@ -22,7 +23,7 @@ function exec_request($request, $types, $listeparam){
     return $loginPassword->get_result();
     }
     else{
-        die("erreur dans la requête" . $_SESSION['connect']->error);
+        die("erreur dans la requête " . $_SESSION['connect']->error);
     }
 }
 
@@ -39,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['connected']=true;
             $_SESSION['mail']=$_POST['mail'];  
             $_SESSION['pw']=$_POST['pw'];
-            header('Location: produit.php');
+            header('Location: index.php');
             exit();
             }
         }
@@ -58,8 +59,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <html>
+    <head>
+        <link rel="icon" src="img/obLogo.png" type="image/x-icon">
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+    </head>
     <body>
-        <form method="post" action="produit.php">
+        <form method="post" action="index.php">
             <label>Connexion</label>
             <br>
             <input type="text" name="mail" id="mail"  placeholder="email"minlength="4" required>
