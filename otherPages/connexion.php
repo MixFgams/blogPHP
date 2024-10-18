@@ -5,7 +5,7 @@ session_start();
 $DBservername = "localhost";
 $DBusername = "root"; 
 $DBpassword = "";  
-$DBdatabase = "hangman_game";
+$DBdatabase = "blogPHP";
 
 $conn = new mysqli($DBservername, $DBusername, $DBpassword, $DBdatabase);
 $_SESSION['connect']=$conn;
@@ -16,6 +16,8 @@ if ($conn->connect_error) {
 }
 
 function exec_request($request, $types, $listeparam){
+    //exécute la requête passée en paramètre
+    // arguments : requête -> string , type -> string et tableau de paramètres -> tab
     $loginPassword= $_SESSION['connect']->prepare($request); //prépare la requête pour l'exécution
     if ($loginPassword){
     $loginPassword->bind_param($types, $listeparam); //lit le password de login pour la requête préparée. 's' précise le type String
@@ -62,19 +64,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
     <head>
         <link rel="icon" src="img/obLogo.png" type="image/x-icon">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="connexion.css">
         <script src="script.js"></script>
     </head>
     <body>
+        <h1>Connectez-vous</h1>
         <form method="post" action="index.php">
-            <label>Connexion</label>
-            <br>
+            <label>Entrez votre identifiant :</label>
             <input type="text" name="pseudo" id="pseudo"  placeholder="pseudo" minlength="4" required>
-            <br>
             <input type="text" name="mail" id="mail"  placeholder="email"minlength="4" required>
-            <br>
             <input type="password" name="pw" id="pw" placeholder="mot de passe" minlength="4" maxlength="12" required>
-            <br>
             <input type="submit" value="connexion">
         </form>
     </body>

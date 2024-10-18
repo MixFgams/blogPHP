@@ -1,0 +1,35 @@
+form{
+    display : flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+}
+
+h1{
+    border: 3px solid aqua;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input{
+    color:blue;
+    border-color: aqua;
+    border-width: 50%;
+    box-shadow: 10px 5px 5px aquamarine;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-submit-button {
+    background: #0066A2;
+    color: white;
+    border-style: outset;
+    border-color: #0066A2;
+    height: 50px;
+    width: 100px;
+    font: bold15px arial,sans-serif;
+    text-shadow: none;
+}
+
+.form-submit-button:hover {
+    background-color: aqua;
+}
