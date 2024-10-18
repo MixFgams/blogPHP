@@ -30,11 +30,12 @@ function exec_request($request, $types, $listeparam){
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (!empty($_POST['mail']) && !empty($_POST['password'])) {
+    if (!empty($_POST['mail']) && !empty($_POST['password']) && !empty($_POST['pseudo'])) {
+        $pseudo=$_POST['pseudo'];
         $mail=$_POST['mail'];
         $password=$_POST['pw'];
-        $requete="select password from User where password= ? and email= ?";
-        if (exec_request($requete,'s',[$password, $mail])->num_rows>0){
+        $requete="select motDePasse from utilisateur where pseudo=? and motDePasse= ? and email= ?";
+        if (exec_request($requete,'s',[$pseudo, $password, $mail])->num_rows>0){
             $row = $result->fetch_assoc(); //ligne de données sql renvoyée
             if (password_verify($password, $row['password'])) { //check si le password hashé correspond
             $_SESSION['connected']=true;
@@ -46,8 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         else{
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-            $requete="insert into User (email, password) values (? , ?)";
-            exec_request($requete, 'ss', [$email, $hashed_password]);
+            $requete="insert into uilisateur (pseudo, email, motDePasse) values (? , ?)";
+            exec_request($requete, 'ss', [$pseudo, $email, $hashed_password]);
             echo "Compte créé avec succès";
         }
     }
@@ -67,6 +68,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <body>
         <form method="post" action="index.php">
             <label>Connexion</label>
+            <br>
+            <input type="text" name="pseudo" id="pseudo"  placeholder="pseudo" minlength="4" required>
             <br>
             <input type="text" name="mail" id="mail"  placeholder="email"minlength="4" required>
             <br>
