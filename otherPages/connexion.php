@@ -62,19 +62,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <html>
-    <head>
-        <link rel="icon" src="img/obLogo.png" type="image/x-icon">
-        <link rel="stylesheet" href="connexion.css">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="img/obLogo.png" type="image/x-icon">
+        <link rel="stylesheet" href="connexion.css"> 
         <script src="script.js"></script>
+        <title>Connexion</title>
     </head>
     <body>
-        <h1>Connectez-vous</h1>
-        <form method="post" action="index.php">
-            <label>Entrez votre identifiant :</label>
-            <input type="text" name="pseudo" id="pseudo"  placeholder="pseudo" minlength="4" required>
-            <input type="text" name="mail" id="mail"  placeholder="email"minlength="4" required>
-            <input type="password" name="pw" id="pw" placeholder="mot de passe" minlength="4" maxlength="12" required>
-            <input type="submit" value="connexion">
-        </form>
+        <div class="form-container"> 
+            <h1>Connectez-vous</h1>
+            <form method="post" action="index.php">
+                <label>Entrez vos identifiants :</label>
+                <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" minlength="4" required>
+                <input type="email" name="mail" id="mail" placeholder="Email" minlength="4" required> 
+                <input type="password" name="pw" id="pw" placeholder="Mot de passe" minlength="4" maxlength="12" required>
+                <input type="submit" value="Connexion" class="form-submit-button">
+            </form>
+        </div>
     </body>
 </html>

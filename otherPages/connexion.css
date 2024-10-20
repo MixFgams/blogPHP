@@ -1,35 +1,91 @@
-form{
-    display : flex;
-    justify-content: space-between;
-    flex-direction: column;
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-h1{
-    border: 3px solid aqua;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* les 2 trucs du dessus c'est pour tout aligner au centre de la page */
+    height: 100vh;
+    background-image: url("night_sky.jpg");
+}
+
+.form-container {
+    /* classe container qui permet de faire le petit rectangle autour du formulaire */
+    background-color: white;
+    padding: 30px;
     border-radius: 10px;
-    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
 }
 
-input{
-    color:blue;
-    border-color: aqua;
-    border-width: 50%;
-    box-shadow: 10px 5px 5px aquamarine;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px; /* espace entre le bas du titre et le formulaire */
+}
+
+label {
+    font-size: 14px;
+    color: #333;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+     /* les champs input excepté le bouton connexion */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+    /* les champs input excepté le bouton connexion si jamais on écrit dedans*/
+    border-color: #0066A2;
 }
 
 .form-submit-button {
-    background: #0066A2;
+    /* bouton connexion */
+    background-color: #0066A2;
     color: white;
-    border-style: outset;
-    border-color: #0066A2;
-    height: 50px;
-    width: 100px;
-    font: bold15px arial,sans-serif;
-    text-shadow: none;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .form-submit-button:hover {
-    background-color: aqua;
+    background-color: #004d80;
+}
+
+@media (max-width: 480px) {
+    /* responsive pcq on pense aux pauvres */
+    .form-container {
+        padding: 20px;
+    }
+
+    input[type="text"], input[type="email"], input[type="password"] {
+        font-size: 14px;
+    }
+
+    .form-submit-button {
+        font-size: 14px;
+    }
 }
