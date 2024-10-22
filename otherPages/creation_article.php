@@ -54,6 +54,10 @@ if (!$_SESSION['connected']){
         }
     }
 }
+else{
+    header('Location: ../index.php');
+    exit();
+}
 
 ?>
 
