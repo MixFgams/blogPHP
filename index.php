@@ -5,8 +5,17 @@
         <link rel="stylesheet" href="style.css">
         <script src="script.js"></script>
     </head>
+    <header>
+        <nav class="header-nav">
+            <a href="index.php"><img src="obLogo.png" href="index.php" alt="Logo OB"></a>
+            <a href="#">Accueil</a>
+            <a href="#">Communauté</a>
+            <a href="#">Catalogue</a>
+            <a href="#">À propos</a>
+        </nav>
+    </header>
     <body>
-        <?php include 'otherPages/header.php'?>
+
         <!--A supprimer plus tard, c etait juste pour le fun-->
         <button id="hideMainBtn">Cacher le contenu</button>
         <main id="mainContent">
@@ -69,7 +78,17 @@
             });
 
         </script>
-        <!------------------------------------------------------------>
-        <?php include 'otherPages/footer.php'?>
     </body>
+    <footer>
+        <nav class="footer-nav">
+            <a href="index.php"><img src="obLogo.png" alt="Logo OB"></a>
+            <a href="#">Contacter l'assistance</a> <!--On remplacera les # avec les liens de pages qu'on va creer-->
+            <a href="#">FAQ</a>
+            <a href="#">Conditions et confidentialité</a>
+            <a href="#">Connexion</a>
+        </nav>
+        <p id="droits-footer">
+            @OB 2024 - Tout contenu externe reste la propriété du propriétaire légitime
+        </p>
+    </footer>
 </html>
