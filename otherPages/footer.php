@@ -1,6 +1,6 @@
 <footer>
     <nav class="footer-nav">
-        <a href="index.php"><img src="obLogo.png" alt="Logo OB"></a>
+        <a href="../index.php"><img src="../obLogo.png" alt="Logo OB"></a>
         <a href="#">Contacter l'assistance</a> <!--On remplacera les # avec les liens de pages qu'on va creer-->
         <a href="#">FAQ</a>
         <a href="#">Conditions et confidentialité</a>
