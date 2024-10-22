@@ -5,7 +5,7 @@ session_start();
 $DBservername = "localhost";
 $DBusername = "root"; 
 $DBpassword = "";  
-$DBdatabase = "blogPHP";
+$DBdatabase = "blog";
 
 $conn = new mysqli($DBservername, $DBusername, $DBpassword, $DBdatabase);
 $_SESSION['connect']=$conn;
@@ -20,7 +20,7 @@ function exec_request($request, $types, $listeparam){
     // arguments : requête -> string , type -> string et tableau de paramètres -> tab
     $loginPassword= $_SESSION['connect']->prepare($request); //prépare la requête pour l'exécution
     if ($loginPassword){
-    $loginPassword->bind_param($types, $listeparam); //lit le password de login pour la requête préparée. 's' précise le type String
+    $loginPassword->bind_param($types, ...$listeparam); //lit le password de login pour la requête préparée. 's' précise le type String
     $loginPassword->execute();
     return $loginPassword->get_result();
     }
@@ -28,34 +28,48 @@ function exec_request($request, $types, $listeparam){
         die("erreur dans la requête " . $_SESSION['connect']->error);
     }
 }
-
-
+$feedback='';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (!empty($_POST['mail']) && !empty($_POST['password']) && !empty($_POST['pseudo'])) {
-        $pseudo=$_POST['pseudo'];
-        $mail=$_POST['mail'];
-        $password=$_POST['pw'];
-        $requete="select motDePasse from utilisateur where pseudo=? and motDePasse= ? and email= ?";
-        if (exec_request($requete,'s',[$pseudo, $password, $mail])->num_rows>0){
-            $row = $result->fetch_assoc(); //ligne de données sql renvoyée
-            if (password_verify($password, $row['password'])) { //check si le password hashé correspond
-            $_SESSION['connected']=true;
-            $_SESSION['mail']=$_POST['mail'];  
-            $_SESSION['pw']=$_POST['pw'];
-            header('Location: index.php');
-            exit();
+    if (!empty($_POST['mail']) && !empty($_POST['pw']) && !empty($_POST['pseudo'])) {
+        $pseudo = $_POST['pseudo'];
+        $mail = $_POST['mail'];
+        $password = $_POST['pw'];
+        
+        $requete="select count(*) as count from utilisateur where pseudo=?";
+        $result = exec_request($requete, 's', [$pseudo]);
+        $result = $result->fetch_assoc();
+
+
+        if ($result['count'] > 0){
+            $requete = "SELECT motDePasse FROM utilisateur WHERE pseudo=?";
+            $result = exec_request($requete, 's', [$pseudo]);
+
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc(); // ligne de données SQL renvoyée
+                if (password_verify($password, $row['motDePasse'])) { // check si le password hashé correspond
+                    $_SESSION['connected'] = true;
+                    $_SESSION['mail'] = $mail;  
+                    $_SESSION['pw'] = $password;
+                    header('Location: ../index.php');
+                    exit();
+                }
+                else{
+                    $feedback="Mot de passe incorrect.";
+                    }
+                } 
             }
-        }
-        else{
+        else {
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-            $requete="insert into uilisateur (pseudo, email, motDePasse) values (? , ?)";
-            exec_request($requete, 'ss', [$pseudo, $email, $hashed_password]);
-            echo "Compte créé avec succès";
+            $requete = "INSERT INTO utilisateur (pseudo, email, motDePasse) VALUES (?, ?, ?)";
+            exec_request($requete, 'sss', [$pseudo, $mail, $hashed_password]);
+            $feedback="Compte créé avec succès.";
+            header('Location: ../index.php');
+            exit();
         }
-    }
-    else{
-        echo "Veuillez rentrer les champs indiqués";
+    } 
+    else {
+        $feedback= "Veuillez rentrer les champs indiqués.";
     }
 }
 
@@ -73,12 +87,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <body>
         <div class="form-container"> 
             <h1>Connectez-vous</h1>
-            <form method="post" action="index.php">
+            <form method="post">
                 <label>Entrez vos identifiants :</label>
                 <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" minlength="4" required>
                 <input type="email" name="mail" id="mail" placeholder="Email" minlength="4" required> 
                 <input type="password" name="pw" id="pw" placeholder="Mot de passe" minlength="4" maxlength="12" required>
                 <input type="submit" value="Connexion" class="form-submit-button">
+
+                <!-- Affiche le message ici -->
+                <?php if (!empty($feedback)): ?>
+                    <p><?php echo $feedback; ?></p>
+                <?php endif; ?>
+
             </form>
         </div>
     </body>
