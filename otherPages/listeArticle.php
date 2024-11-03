@@ -18,7 +18,7 @@
 ?>
 
 <html>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="listeArticles.css">
     <header>
         <?php
             include 'header.php';
@@ -31,6 +31,7 @@
         <form method="GET">
             <label for="barreRecherche">Recherchez un article : </label>
             <input id="barreRecherche" name="barreRecherche" type="search">
+            <h1>Liste des articles</h1>
             <?php
             $_isSearched = false;
             if(!empty($_GET['barreRecherche'])){
@@ -57,7 +58,6 @@
         </form>
 
     </div>
-    <h1>Liste des articles</h1>
     <?php
         if($_isSearched == false){
             $sql = "SELECT id, titre, description, fk_pseudo FROM article";
