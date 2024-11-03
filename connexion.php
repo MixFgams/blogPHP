@@ -10,6 +10,7 @@ $DBdatabase = "blog";
 // Connexion à la base de données et initialisation de l'état de connexion
 $conn = new mysqli($DBservername, $DBusername, $DBpassword, $DBdatabase);
 $_SESSION['connected'] = false;
+$_SESSION['connect'] = $conn;
 
 if ($conn->connect_error) {
     error_log("Connection failed: " . $conn->connect_error);
@@ -47,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (password_verify($password, $row['motDePasse'])) { // Vérification du mot de passe
                 $_SESSION['connected'] = true; // Mise à jour de l'état de connexion
                 $_SESSION['idUser'] = $row['id']; // Stockage de l'ID utilisateur pour les sessions
-                header('Location: ../index.php'); // Redirection vers la page d'accueil
+                header('Location: listeArticle.php'); // Redirection vers la page d'accueil
                 exit();
             } else {
                 $feedback = "Mot de passe incorrect.";
@@ -62,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $newUserId = $conn->insert_id; // Obtient l'ID de l'utilisateur nouvellement créé
             $_SESSION['idUser'] = $newUserId;
             $_SESSION['connected'] = true; // Met à jour l'état de connexion
-            header('Location: ../index.php'); // Redirection vers la page d'accueil
+            header('Location: listeArticle.php'); // Redirection vers la page d'accueil
             exit();
         }
     } else {
