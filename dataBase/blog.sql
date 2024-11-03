@@ -32,9 +32,7 @@ CREATE TABLE IF NOT EXISTS `article` (
   `id` int NOT NULL AUTO_INCREMENT COMMENT 'Identifiant unique de l''article.',
   `titre` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'Titre de l''article.',
   `description` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'Contenu ou résumé de l''article.',
-  `fk_pseudo` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'Clé étrangère vers le pseudo de la table User.',
-  `commentaires` int NOT NULL COMMENT 'Clé étrangère vers la table Commentaire.',
-  PRIMARY KEY (`id`)
+  `fk_pseudo` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'Clé étrangère vers le pseudo de la table User.'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------

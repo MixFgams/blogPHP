@@ -1,0 +1,193 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh; /*100vh pour prendre toute la hauteur de la fenêtre */
+    margin: 0 auto;
+    font-family: "Century Gothic", sans-serif;
+}
+
+
+/*-------------- Styles communs pour Header et Footer --------------*/
+header, footer {
+    background-color: lightgray;
+    color: black;
+    padding: 5px;
+    font-family: "Century Gothic", sans-serif;
+    text-align: center;
+    border-radius: 10px;
+}
+
+header nav, footer nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+    font-weight: bold;
+}
+
+header a, footer a {
+    color: black;
+    text-decoration: none;
+    transition: 0.5s; /*Pour la transition en bleu et la taille des liens sur le header seulement, j'ai laissé la couleur sur le noir et la taille en normal pour le footer*/
+}
+
+header a:hover {
+    text-decoration: underline;
+    color: darkblue;
+    font-size: larger;
+    transition: 0.5s;
+}
+
+header img, footer img {
+    width: 5em;
+    margin-right: 15px;
+}
+
+/*-------------- Styles spécifiques au Footer --------------*/
+footer {
+    margin-top: auto; /* Aide à pousser le footer en bas */
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer p#droits-footer {
+    margin: 0.5em;
+    font-style: italic;
+    font-size: 0.8em;
+}
+
+/*A SUPPRIMER, C ETAIT JUSTE POUR LE FUN*/
+
+h1 {
+    font-size: 2.5em;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-right : 8em;
+    margin-left: 8em;
+    background-color: #282d5c;
+}
+
+h2 {
+    font-size: 2em;
+    color: #444;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+h2:hover {
+    color: #d9641d;
+    transform: scale(1.02);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+
+section {
+    margin: 20px auto;
+    padding: 15px;
+    max-width: 800px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+section p {
+    line-height: 1.6;
+    color: #555;
+    margin: 10px 0;
+}
+
+blockquote{
+    font-style: italic;
+    color: #777;
+    border-left: 4px solid #d32f2f;
+    padding-left: 10px;
+    margin: 20px 0;
+}
+
+#animated-text {
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+button {
+    padding: 10px 20px;
+    background-color: #f44336;
+    margin: 1em;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    justify-self: center;
+    align-self: center;
+}
+
+button:hover {
+    background-color: #d32f2f;
+}
+
+/*------------------------------------------------------------*/
+/*                     Affichage des articles :               */
+/*------------------------------------------------------------*/
+
+.article {
+    width: 100%;
+    margin: 1% auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.article h2, .article p {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Pied de l'article */
+.article-footer {
+    max-width: 1200px; /* S'assurer que le footer suit la largeur du contenu */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+    color: #888;
+}
+
+.article-footer .auteur {
+    font-weight: bold;
+    color: #555;
+}
+
+.lienArticle {
+    color: #d9641d;
+}
+
+a {
+    text-decoration: underline 0.15em rgba(0, 0, 0, 0);
+    transition: text-decoration-color 300ms;
+}
+
+a:hover {
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 0, 0, 1);
+}
