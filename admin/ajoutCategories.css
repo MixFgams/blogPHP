@@ -1,12 +1,12 @@
-body {
+body main{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 100vh; /*100vh pour prendre toute la hauteur de la fenêtre */
+    min-height: 100vh;
     margin: 0 auto;
+    width: 70%;
     font-family: "Century Gothic", sans-serif;
 }
-
 
 /*-------------- Styles communs pour Header et Footer --------------*/
 header, footer {
@@ -44,23 +44,54 @@ header img, footer img {
     margin-right: 15px;
 }
 
-/*-------------- Styles spécifiques au Footer --------------*/
-footer {
-    margin-top: auto; /* Aide à pousser le footer en bas */
+/*-------------- Styles pour le formulaire d'ajout de catégorie --------------*/
+form {
+    margin: 20px 0;
+    background-color: #fff; /* Couleur de fond du formulaire */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-footer a:hover {
-    text-decoration: underline;
+label {
+    margin-right: 10px; /* Espace entre le label et l'input */
+    font-size: 1.2em;
+    color: #212A45;
 }
 
-footer p#droits-footer {
-    margin: 0.5em;
-    font-style: italic;
-    font-size: 0.8em;
+input[type="text"], input[type="search"] {
+    padding: 10px;
+    width: 50%; /* Ajusté pour le champ de texte */
+    font-size: 1em;
+    border: 2px solid #212A45; /* Couleur de la bordure */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    margin-top: 10px;
 }
 
-/*A SUPPRIMER, C ETAIT JUSTE POUR LE FUN*/
+input[type="text"]:focus, input[type="search"]:focus {
+    outline: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
 
+button {
+    padding: 10px 20px;
+    background-color: #f44336; /* Couleur du bouton */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    justify-self: center;
+    align-self: center;
+    margin-top: 10px; /* Espace au-dessus du bouton */
+}
+
+button:hover {
+    background-color: #d32f2f; /* Couleur au survol du bouton */
+}
+
+/*-------------- Styles pour les titres --------------*/
 h1 {
     font-size: 2.5em;
     color: white;
@@ -68,9 +99,8 @@ h1 {
     margin-bottom: 20px;
     font-weight: bold;
     border-radius: 10px;
-    margin-right : 8em;
-    margin-left: 8em;
     background-color: #282d5c;
+    width: 100%;
 }
 
 h2 {
@@ -88,6 +118,16 @@ h2:hover {
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
+/*-------------- Styles spécifiques pour le Footer --------------*/
+footer {
+    margin-top: auto; /* Aide à pousser le footer en bas */
+}
+
+footer p#droits-footer {
+    margin: 0.5em;
+    font-style: italic;
+    font-size: 0.8em;
+}
 
 section {
     margin: 20px auto;
@@ -104,7 +144,8 @@ section p {
     margin: 10px 0;
 }
 
-blockquote{
+/*-------------- Styles généraux --------------*/
+blockquote {
     font-style: italic;
     color: #777;
     border-left: 4px solid #d32f2f;
@@ -121,73 +162,24 @@ blockquote{
     to { opacity: 1; }
 }
 
-
-button {
-    padding: 10px 20px;
-    background-color: #f44336;
-    margin: 1em;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    justify-self: center;
-    align-self: center;
-}
-
-button:hover {
-    background-color: #d32f2f;
-}
-
-/*------------------------------------------------------------*/
-/*                     Affichage des articles :               */
-/*------------------------------------------------------------*/
-
-.article {
-    width: 100%;
-    margin: 1% auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.article:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-}
-
-.article h2, .article p {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Pied de l'article */
-.article-footer {
-    max-width: 1200px; /* S'assurer que le footer suit la largeur du contenu */
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.9em;
-    color: #888;
-}
-
-.article-footer .auteur {
-    font-weight: bold;
-    color: #555;
-}
-
-.lienArticle {
-    color: #d9641d;
-}
-
+/*-------------- Lien et article --------------*/
 a {
-    text-decoration: underline 0.15em rgba(0, 0, 0, 0);
+    text-decoration: underline;
     transition: text-decoration-color 300ms;
 }
 
 a:hover {
-    text-decoration: underline;
     text-decoration-color: rgba(0, 0, 0, 1);
+}
+
+/* Styles pour les titres de colonnes */
+th {
+    text-align: left; /* Aligne le texte à gauche */
+    padding: 10px; /* Ajoute un peu d'espace autour du texte */
+    background-color: #f0f0f0; /* Couleur de fond pour les titres (facultatif) */
+    border-bottom: 2px solid #ccc; /* Ligne sous le titre (facultatif) */
+}
+
+table {
+    margin-bottom: 10px;
 }

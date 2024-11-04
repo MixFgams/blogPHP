@@ -115,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['commentaire'])) {
 
 
 ?>
-
+<html>
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="img/obLogo.png" type="image/x-icon">
@@ -127,25 +127,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['commentaire'])) {
 <?php include 'pagesOutils/header.php'; ?>
 
 <body>
-    <main>
-        <h1><?php echo htmlspecialchars($titre); ?></h1>
-        <h2>Créateur : <span class="pseudo"><?php echo htmlspecialchars($pseudoCreateur); ?></span></h2>
-        <h2>Catégories : </h2>
-        <p class="categories"><?php echo htmlspecialchars($listeCategories); ?></p>
-        <h2>Description : </h2>
-        <p class="description"><?php echo nl2br(htmlspecialchars($description)); ?></p>
-        <h2>Commentaires : </h2>
-        <div class="commentaires">
-            <?php echo $listeCommentaires; ?>
-        </div>
+<main>
+    <h1><?php echo htmlspecialchars($titre); ?></h1>
 
-        <!-- Formulaire d'ajout de commentaire -->
-        <h2>Ajouter un commentaire :</h2>
-        <form method="POST">
-            <textarea name="commentaire" rows="4" cols="50" required placeholder="Écrivez votre commentaire ici..."></textarea>
-            <button type="submit">Envoyer</button>
-        </form>
-    </main>
+    <section>
+    <h2>Créateur : <span class="pseudo"><?php echo htmlspecialchars($pseudoCreateur); ?></span></h2>
+    </section>
+
+    <section>
+    <h2>Catégories : </h2>
+    <p class="categories"><?php echo htmlspecialchars($listeCategories); ?></p>
+    </section>
+
+    <section>
+    <h2>Description : </h2>
+    <p class="description"><?php echo nl2br(htmlspecialchars($description)); ?></p>
+    </section>
+
+    <section>
+    <h2>Commentaires : </h2>
+    <div class="commentaires">
+        <?php echo $listeCommentaires; ?>
+    </div>
+    </section>
+
+    <!-- Formulaire d'ajout de commentaire -->
+    <section>
+    <h2>Ajouter un commentaire :</h2>
+    <form method="POST" class="comment-form">
+        <textarea name="commentaire" rows="4" required placeholder="Écrivez votre commentaire ici..."></textarea>
+        <button type="submit">Envoyer</button>
+    </form>
+    </section>
+</main>
 </body>
 
 <?php include 'pagesOutils/footer.php'; ?>

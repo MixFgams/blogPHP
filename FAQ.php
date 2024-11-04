@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<?php
+    // Vérifier si l'utilisateur est connecté
+    if (!isset($_SESSION['idUser'])) {
+        header("location: connexion.php");
+        exit();
+}
+?>
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -7,14 +14,16 @@
         <link rel="stylesheet" href="style.css">
     </head>
 
-    <?php include "pagesOutils/header.php" ?>
+    <header>
+        <?php include "pagesOutils/header.php" ?>
+    </header>
 
     <body>
         <main>
             <h1>Foire aux Questions (FAQ)</h1>
 
             <!-- Sommaire avec des liens vers chaque question -->
-            <nav>
+            <nav class="navSommaire">
                 <h2>Sommaire</h2>
                 <ul>
                     <li><a href="#q1">Comment puis-je créer un compte ?</a></li>
@@ -44,7 +53,7 @@
 
             <section>
                 <h2>Comment contacter l’équipe de support ?</h2>
-                <p>Si vous avez besoin d'aide, vous pouvez nous contacter via l'onglet "Contact" ou en envoyant un e-mail à <a href="mailto:support@example.com">support@example.com</a>. Notre équipe vous répondra dans les plus brefs délais.</p>
+                <p>Si vous avez besoin d'aide, vous pouvez nous contacter via l'onglet "Contact" ou en envoyant un e-mail à <a href="mailto:FaroukMohamed.Bendeddouche@outlook.com">FaroukMohamed.Bendeddouche@outlook.com</a>. Notre équipe vous répondra dans les plus brefs délais.</p>
             </section>
 
             <section>
@@ -54,6 +63,7 @@
         </main>
     </body>
 
-    <?php include "pagesOutils/footer.php" ?>
-
+    <footer>
+        <?php include "pagesOutils/footer.php" ?>
+    </footer>
 </html>

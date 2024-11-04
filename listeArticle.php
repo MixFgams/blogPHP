@@ -2,8 +2,12 @@
 
         session_start();
 
-        include "pagesOutils/connDB.php"
-
+        include "pagesOutils/connDB.php";
+        // Vérifier si l'utilisateur est connecté
+        if (!isset($_SESSION['idUser'])) {
+            header("location: connexion.php");
+            exit();
+        }
     ?>
 
     <html>
@@ -15,12 +19,11 @@
         </header>
         <body>
         <main>
-
-        <h1>Liste des articles</h1>
         <div id="search-container">
             <form method="GET">
                 <label for="barreRecherche">Recherchez un article : </label>
                 <input id="barreRecherche" name="barreRecherche" type="search">
+                <h1>Liste des articles</h1>
                 <?php
                 $_isSearched = false;
                 if(!empty($_GET['barreRecherche'])){

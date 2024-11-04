@@ -95,16 +95,18 @@ footer p#droits-footer {
 h1 {
     font-size: 2.5em;
     color: white;
+    font-family: "Century Gothic", sans-serif;
     text-align: center;
-    margin-bottom: 20px;
+    margin : 10px auto ;
     font-weight: bold;
     border-radius: 10px;
     background-color: #282d5c;
-    width: 100%;
+    width: 70%;
 }
 
 h2 {
     font-size: 2em;
+    font-family: "Century Gothic", sans-serif;
     color: #444;
     margin-top: 20px;
     margin-bottom: 10px;
@@ -220,4 +222,82 @@ a {
 a:hover {
     text-decoration: underline;
     text-decoration-color: rgba(0, 0, 0, 1);
+}
+
+
+/* Styles pour la page de création d'article */
+form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    max-width: 800px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    font-family: "Century Gothic", sans-serif;
+}
+
+form label {
+    font-size: 1.2em;
+    color: #212A45;
+}
+
+form input[type="text"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #212A45;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    font-size: 1em;
+}
+
+form input[type="text"]:focus,
+form textarea:focus {
+    outline: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+#categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+#categories div {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+#categories div:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+button[type="submit"] {
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    cursor: pointer;
+    align-self: center;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #b92626;
 }

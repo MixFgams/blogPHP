@@ -1,9 +1,10 @@
-body {
+body main{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: 100vh; /*100vh pour prendre toute la hauteur de la fenêtre */
     margin: 0 auto;
+    width: 70%;
     font-family: "Century Gothic", sans-serif;
 }
 
@@ -87,7 +88,6 @@ footer p#droits-footer {
 
 /* Pied de l'article */
 .article-footer {
-    max-width: 1200px; /* S'assurer que le footer suit la largeur du contenu */
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -161,7 +161,74 @@ pseudo {
     line-height: 1.6;
 }
 
-/* Style pour le conteneur principal */
-main {
-    margin: 5em;
+
+.comment-form {
+    width: 100%; /* Assure que le formulaire prend toute la largeur */
+    max-width: 600px; /* Limite la largeur maximale */
+    margin: 0; /* Supprime le centrage */
+    padding: 0; /* Assure qu'il reste bien aligné */
 }
+
+/* Styliser le bouton et le textarea pour qu'ils respectent la charte */
+.comment-form textarea {
+    width: 100%; /* S'assure que le champ prend toute la largeur du conteneur */
+    font-family: "Century Gothic", sans-serif; /* Respecte la police */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.comment-form button {
+    font-family: "Century Gothic", sans-serif;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: #d9641d; /* Couleur de votre charte */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.comment-form button:hover {
+    background-color: #b3551a; /* Légère variation de couleur au survol */
+}
+
+section {
+    width: 100%; /* Assurez-vous que les sections prennent toute la largeur */
+    margin: 10px auto; /* Centrez les sections si nécessaire */
+    background-color: #f9f9f9; /* Couleur de fond pour les sections */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px; /* Ajoutez du padding si besoin */
+}
+
+h1 {
+    font-size: 2.5em;
+    color: white;
+    font-family: "Century Gothic", sans-serif;
+    text-align: center;
+    margin : 10px auto ;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: #282d5c;
+    width: 70%;
+}
+
+h2 {
+    font-size: 2em;
+    font-family: "Century Gothic", sans-serif;
+    color: #444;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+h2:hover {
+    color: #d9641d;
+    transform: scale(1.02);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+
