@@ -20,17 +20,16 @@
             <h1>Foire aux Questions (FAQ)</h1>
 
             <!-- Sommaire avec des liens vers chaque question -->
-            <nav class="navSommaire">
+            <section>
                 <h2>Sommaire</h2>
                 <ul>
                     <li><a href="#q1">Comment puis-je créer un compte ?</a></li>
-                    <li><a href="#q2">Comment réinitialiser mon mot de passe ?</a></li>
                     <li><a href="#q3">Comment publier un article sur le blog ?</a></li>
                     <li><a href="#q4">Puis-je modifier ou supprimer mon article ?</a></li>
                     <li><a href="#q5">Comment contacter l’équipe de support ?</a></li>
                     <li><a href="#q6">Comment sont utilisées mes données personnelles ?</a></li>
                 </ul>
-            </nav>
+            </section>
 
             <!-- Sections de questions et réponses -->
             <section>
