@@ -20,7 +20,7 @@
             <h1>Conditions Générales d'Utilisation et Politique de Confidentialité</h1>
             
             <!-- Sommaire avec des liens vers chaque section -->
-            <nav id="sommaire">
+            <section>
                 <h2>Sommaire</h2>
                 <ul>
                     <li><a href="#conditions-utilisation">Conditions Générales d'Utilisation</a></li>
@@ -31,7 +31,7 @@
                     <li><a href="#modifications">Modifications de la Politique de Confidentialité</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-            </nav>
+            </section>
 
             <!-- Sections de contenu -->
             <section id="conditions-utilisation">
