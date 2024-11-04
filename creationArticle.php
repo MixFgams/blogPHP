@@ -1,11 +1,7 @@
 <?php
 session_start();
 
-// Vérifie si l'utilisateur est connecté
-if (!isset($_SESSION['idUser'])) {
-    header("location: connexion.php");
-    exit();
-}
+include "pagesOutils/connected.php";
 
 include "pagesOutils/connDB.php";
 

@@ -4,11 +4,7 @@ session_start(); // Démarre la session pour gérer les informations de connexio
 
 include "pagesOutils/connDB.php";
 
-// Vérifie si l'utilisateur est connecté
-if (!isset($_SESSION['idUser'])) {
-    header("location: connexion.php");
-    exit();
-}
+include "pagesOutils/connected.php";
 
 // Initialisation des variables pour éviter des erreurs si l'id de l'article n'est pas trouvé
 $titre = '';

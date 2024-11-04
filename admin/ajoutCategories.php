@@ -1,11 +1,28 @@
 <?php
 session_start();
 include "../pagesOutils/connDB.php";
+include "../pagesOutils/connected.php";
 
-// Vérifie si l'utilisateur est connecté et s'il est administrateur
-if (!isset($_SESSION['idUser']) || $_SESSION['email'] !== 'admin@localhost.fr') {
-    header("location: ../connexion.php");
-    exit();
+// Récupère l'email de l'utilisateur connecté
+$idUser = $_SESSION['idUser'];
+$sqlUser = "SELECT email FROM utilisateur WHERE id = ?";
+$stmtUser = $conn->prepare($sqlUser);
+$stmtUser->bind_param("i", $idUser);
+$stmtUser->execute();
+$resultUser = $stmtUser->get_result();
+
+if ($resultUser->num_rows > 0) {
+    $rowUser = $resultUser->fetch_assoc();
+    $email = $rowUser['email'];
+
+    // Vérifie si l'email est celui de l'administrateur
+    if ($email !== 'admin@localhost.fr') {
+        echo "Accès refusé. Vous n'êtes pas administrateur.";
+        exit;
+    }
+} else {
+    echo "Utilisateur non trouvé.";
+    exit;
 }
 
 

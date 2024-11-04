@@ -1,4 +1,7 @@
-
+<?php
+    session_start();
+    include "pagesOutils/connected.php";
+?>
 
 <!DOCTYPE html>
 <html>
